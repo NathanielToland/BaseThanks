@@ -45,3 +45,7 @@ npm run build
 
 - Contract: `contracts/BaseThanks.sol`
 - ABI: `lib/abi/baseThanksAbi.ts`
+
+## Deployment
+
+Deploy with Vercel after setting the same `NEXT_PUBLIC_*` values used locally.
