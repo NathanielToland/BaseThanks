@@ -34,3 +34,9 @@ npm run dev
 ## Verification
 
 Run TypeScript checks, wallet provider routing tests, and a production build before deployment.
+
+```bash
+npm run typecheck
+npm run test:wallets
+npm run build
+```
