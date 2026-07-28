@@ -1,0 +1,37 @@
+{
+  "name": "basethanks",
+  "version": "1.0.0",
+  "description": "BaseThanks mini app for onchain gratitude notes on Base.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test:wallets": "tsx tests/walletProviders.test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@coinbase/wallet-sdk": "^4.3.7",
+    "@tanstack/react-query": "^5.101.4",
+    "lucide-react": "^1.26.0",
+    "next": "^16.2.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "viem": "^2.55.8",
+    "wagmi": "^3.7.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.11",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.1",
+    "typescript": "^6.0.3"
+  }
+}
