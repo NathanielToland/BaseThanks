@@ -40,3 +40,8 @@ npm run typecheck
 npm run test:wallets
 npm run build
 ```
+
+## Contract Files
+
+- Contract: `contracts/BaseThanks.sol`
+- ABI: `lib/abi/baseThanksAbi.ts`
