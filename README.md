@@ -15,3 +15,5 @@ Only three wallet buttons are shown:
 - OKX Wallet
 - MetaMask
 - Coinbase Wallet
+
+OKX detection checks `window.okxwallet`, `window.okxWallet`, nested OKX providers, provider arrays, and EIP-6963 announcements before connecting.
