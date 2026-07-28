@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --ink: #342621;
+  --muted: #806d65;
+  --paper: #fffaf4;
+  --line: #ecd7cd;
+  --coral: #df6f5f;
+  --rose: #f4b7b2;
+  --sage: #93a98c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(244, 183, 178, 0.32), transparent 34rem),
+    linear-gradient(145deg, #fffdf8 0%, #fff5ed 48%, #f8fbf0 100%);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.paper-texture {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.52)),
+    repeating-linear-gradient(0deg, rgba(92, 63, 47, 0.035) 0, rgba(92, 63, 47, 0.035) 1px, transparent 1px, transparent 7px);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(223, 111, 95, 0.35);
+  outline-offset: 2px;
+}
