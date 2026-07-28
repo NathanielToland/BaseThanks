@@ -1,11 +1,11 @@
 import { isAddress, zeroAddress, type Address } from "viem";
 
-export type ThanksNote = {
+export type KudosCard = {
   id: string;
   sender: Address;
   receiver: Address;
   message: string;
-  thanksType: number;
+  cardType: number;
   timestamp: number;
 };
 
@@ -45,13 +45,13 @@ function normalizeAddress(value: unknown): Address {
   return typeof value === "string" && isAddress(value) ? value : emptyAddress;
 }
 
-export function normalizeThanks(raw: unknown, id: unknown): ThanksNote {
+export function normalizeKudos(raw: unknown, id: unknown): KudosCard {
   return {
     id: safeBigInt(id).toString(),
     sender: normalizeAddress(readField(raw, 0, "sender")),
     receiver: normalizeAddress(readField(raw, 1, "receiver")),
-    message: String(readField(raw, 2, "message") ?? ""),
-    thanksType: safeNumber(readField(raw, 3, "thanksType")),
+    cardType: safeNumber(readField(raw, 2, "cardType")),
+    message: String(readField(raw, 3, "message") ?? ""),
     timestamp: safeNumber(readField(raw, 4, "timestamp"))
   };
 }

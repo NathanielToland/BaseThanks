@@ -1,9 +1,9 @@
 import { type Address } from "viem";
-import { baseThanksAbi } from "@/lib/abi/baseThanksAbi";
+import { baseKudosAbi } from "@/lib/abi/baseKudosAbi";
 import { contractAddress, hasContractAddress } from "@/lib/env";
 
-export const baseThanksContract = {
-  abi: baseThanksAbi,
+export const baseKudosContract = {
+  abi: baseKudosAbi,
   address: contractAddress as Address
 };
 

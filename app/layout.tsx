@@ -3,8 +3,8 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
-  title: "BaseThanks",
-  description: "Small notes of gratitude, kept onchain."
+  title: "BaseKudos",
+  description: "Encouragement cards for every small win."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

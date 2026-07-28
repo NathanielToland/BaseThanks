@@ -30,12 +30,12 @@ export const metaMaskConnector = injected({
 });
 
 export const coinbaseConnector = coinbaseWallet({
-  appName: "BaseThanks",
+  appName: "BaseKudos",
   preference: { options: "eoaOnly" }
 });
 
 export const baseAccountConnector = baseAccount({
-  appName: "BaseThanks",
+  appName: "BaseKudos",
   preference: { options: "all" }
 });
 

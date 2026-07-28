@@ -1,12 +1,13 @@
-# BaseThanks
+# BaseKudos
 
-BaseThanks is a Base Mini App for sending small onchain gratitude notes.
+BaseKudos is a Base Mini App for sending onchain encouragement cards.
 
 ## Features
 
-- Send repeatable thanks notes to any non-zero wallet address.
-- Send thanks to yourself without reverting.
-- Track sent count, received count, reward points, referrals, and total thanks.
+- Send repeatable kudos cards to any non-zero wallet address.
+- Send kudos to yourself without reverting.
+- Mint one ERC1155 card to the receiver for each kudos.
+- Track sent count, received count, reward points, referrals, card balances, and total kudos.
 
 ## Wallets
 
@@ -45,8 +46,8 @@ npm run build
 
 ## Contract Files
 
-- Contract: `contracts/BaseThanks.sol`
-- ABI: `lib/abi/baseThanksAbi.ts`
+- Contract: `contracts/BaseKudos.sol`
+- ABI: `lib/abi/baseKudosAbi.ts`
 
 ## Deployment
 

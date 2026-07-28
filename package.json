@@ -1,7 +1,7 @@
 {
-  "name": "basethanks",
+  "name": "basekudos",
   "version": "1.0.0",
-  "description": "BaseThanks mini app for onchain gratitude notes on Base.",
+  "description": "BaseKudos mini app for onchain encouragement cards on Base.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

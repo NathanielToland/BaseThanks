@@ -1,5 +1,5 @@
-import { BaseThanksApp } from "@/components/BaseThanksApp";
+import { BaseKudosApp } from "@/components/BaseKudosApp";
 
 export default function Home() {
-  return <BaseThanksApp />;
+  return <BaseKudosApp />;
 }
