@@ -7,8 +7,8 @@ export const chainId = Number.isSafeInteger(parsedChainId) ? parsedChainId : 845
 export const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 export const hasContractAddress = Boolean(contractAddress && isAddress(contractAddress) && contractAddress !== zeroAddress);
 export const baseAppId = process.env.NEXT_PUBLIC_BASE_APP_ID ?? "";
-export const builderCode = process.env.NEXT_PUBLIC_BUILDER_CODE || "bc_94sb390d";
-export const attributionVersion = "v2";
+export const builderCode = process.env.NEXT_PUBLIC_BUILDER_CODE || "bc_0oj5zuw4";
+export const attributionVersion = "v3";
 
 export function getDataSuffix(): `0x${string}` | undefined {
   const value = process.env.NEXT_PUBLIC_DATA_SUFFIX;

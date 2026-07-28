@@ -25,7 +25,7 @@ MetaMask detection accepts only real `isMetaMask` providers and excludes OKX-com
 
 Copy `.env.example` to `.env.local` and set the public contract address, chain ID, Base app ID, builder code, and data suffix.
 
-The default Builder Code is `bc_94sb390d`. The app generates the ERC-8021 suffix with `Attribution.toDataSuffix({ codes: [...] })` instead of appending the raw code string.
+The default Builder Code is `bc_0oj5zuw4`. The app generates the ERC-8021 suffix with `Attribution.toDataSuffix({ codes: [...] })` instead of appending the raw code string.
 
 ## Local Development
 
