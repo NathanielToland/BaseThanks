@@ -17,3 +17,5 @@ Only three wallet buttons are shown:
 - Coinbase Wallet
 
 OKX detection checks `window.okxwallet`, `window.okxWallet`, nested OKX providers, provider arrays, and EIP-6963 announcements before connecting.
+
+MetaMask detection accepts only real `isMetaMask` providers and excludes OKX-compatible providers. Coinbase Wallet uses Wagmi's Coinbase connector with EOA-only preference.
