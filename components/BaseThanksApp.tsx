@@ -2,12 +2,12 @@
 
 import { Heart, Inbox, Link2, LogOut, Send, Users } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { isAddress, zeroAddress, type Address } from "viem";
-import { readContract, waitForTransactionReceipt, writeContract } from "wagmi/actions";
+import { concatHex, encodeFunctionData, isAddress, zeroAddress, type Address } from "viem";
+import { readContract, sendTransaction, waitForTransactionReceipt } from "wagmi/actions";
 import { useAccount, useConfig, useConnect, useDisconnect } from "wagmi";
 import { baseThanksAbi } from "@/lib/abi/baseThanksAbi";
 import { requireContractAddress } from "@/lib/contract";
-import { builderCode, chainId, contractAddress, hasContractAddress } from "@/lib/env";
+import { attributionVersion, builderCode, chainId, contractAddress, hasContractAddress } from "@/lib/env";
 import { errorMessage, normalizeThanks, normalizeUser, safeBigInt, type ThanksNote, type UserStats } from "@/lib/normalize";
 import { coinbaseConnector, dataSuffix, metaMaskConnector, okxConnector, wagmiConfig } from "@/lib/wagmi";
 import { findWalletProvider, setupEip6963WalletDiscovery, type WalletKind, type WalletProvider } from "@/lib/walletProviders";
@@ -217,12 +217,17 @@ export function BaseThanksApp() {
 
     try {
       setStatus("Waiting for wallet confirmation...");
-      const hash = await writeContract(config, {
-        address: requireContractAddress(),
+      const callData = encodeFunctionData({
         abi: baseThanksAbi,
         functionName: "sendThanks",
-        args: [receiver as Address, trimmed, thanksType, referrer],
-        ...(dataSuffix ? { dataSuffix } : {})
+        args: [receiver as Address, trimmed, thanksType, referrer]
+      });
+      const data = concatHex([callData, dataSuffix]);
+      const hash = await sendTransaction(config, {
+        to: requireContractAddress(),
+        data,
+        value: 0n,
+        chainId
       });
       setStatus("Transaction sent. Waiting for Base confirmation...");
       await waitForTransactionReceipt(config, { hash });
@@ -305,8 +310,9 @@ export function BaseThanksApp() {
             <InfoRow label="Contract address" value={contractAddress || "Missing"} />
             <InfoRow label="Network" value="Base" />
             <InfoRow label="Chain ID" value={String(chain?.id ?? chainId)} />
-            <InfoRow label="Attribution status" value={`${builderCode ? "Builder code set" : "Builder code missing"} / ${dataSuffix ? "Onchain suffix set" : "Onchain suffix missing"}`} />
-            <InfoRow label="dataSuffix tail" value={dataSuffix ? dataSuffix.slice(-12) : "Missing"} />
+            <InfoRow label="Attribution status" value={`Onchain attribution: suffix enabled · ${attributionVersion} · ...${dataSuffix.slice(-12)}`} />
+            <InfoRow label="Builder code" value={builderCode} />
+            <InfoRow label="dataSuffix tail" value={dataSuffix.slice(-12)} />
           </dl>
         </aside>
       </section>

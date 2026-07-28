@@ -1,11 +1,15 @@
-import { http, createConfig } from "wagmi";
+import { Attribution } from "ox/erc8021";
+import { http, cookieStorage, createConfig, createStorage } from "wagmi";
 import { base } from "wagmi/chains";
 import { injected } from "wagmi/connectors";
+import { baseAccount } from "wagmi/connectors/baseAccount";
 import { coinbaseWallet } from "wagmi/connectors/coinbaseWallet";
-import { getDataSuffix } from "@/lib/env";
+import { builderCode } from "@/lib/env";
 import { findWalletProvider } from "@/lib/walletProviders";
 
-export const dataSuffix = getDataSuffix();
+export const dataSuffix = Attribution.toDataSuffix({
+  codes: [builderCode]
+}) as `0x${string}`;
 
 export const okxConnector = injected({
   shimDisconnect: true,
@@ -30,9 +34,17 @@ export const coinbaseConnector = coinbaseWallet({
   preference: { options: "eoaOnly" }
 });
 
+export const baseAccountConnector = baseAccount({
+  appName: "BaseThanks",
+  preference: { options: "all" }
+});
+
 export const wagmiConfig = createConfig({
   chains: [base],
-  connectors: [okxConnector, metaMaskConnector, coinbaseConnector],
+  connectors: [okxConnector, metaMaskConnector, coinbaseConnector, baseAccountConnector],
+  storage: createStorage({
+    storage: cookieStorage
+  }),
   transports: {
     [base.id]: http()
   }

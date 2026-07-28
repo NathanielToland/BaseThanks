@@ -24,6 +24,8 @@ MetaMask detection accepts only real `isMetaMask` providers and excludes OKX-com
 
 Copy `.env.example` to `.env.local` and set the public contract address, chain ID, Base app ID, builder code, and data suffix.
 
+The default Builder Code is `bc_94sb390d`. The app generates the ERC-8021 suffix with `Attribution.toDataSuffix({ codes: [...] })` instead of appending the raw code string.
+
 ## Local Development
 
 ```bash
@@ -49,3 +51,5 @@ npm run build
 ## Deployment
 
 Deploy with Vercel after setting the same `NEXT_PUBLIC_*` values used locally.
+
+After deployment, open the production domain and confirm the Contract Info panel shows the latest attribution version and suffix tail before sending a new transaction.
