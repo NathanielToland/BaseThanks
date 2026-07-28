@@ -23,3 +23,10 @@ MetaMask detection accepts only real `isMetaMask` providers and excludes OKX-com
 ## Environment
 
 Copy `.env.example` to `.env.local` and set the public contract address, chain ID, Base app ID, builder code, and data suffix.
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
